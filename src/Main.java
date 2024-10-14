@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -23,21 +25,17 @@ public class Main {
         }
     }
 
-    public static void checkerDeviceClient(int deviceOs, int deviceYear) {
-        if (deviceOs == 0) {
-            if (deviceYear >= 2015) {
-                System.out.println("Установите облегчённую версию приложения для iOS по ссылке");
-            } else {
-                System.out.println("Установите версию приложения для iOS по ссылке");
-            }
-        } else if (deviceOs == 1) {
-            if (deviceYear >= 2015) {
-                System.out.println("Установите облегчённую версию приложения для Android по ссылке");
-            } else {
-                System.out.println("Установите версию приложения для Android по ссылке");
-            }
-        } else {
-            System.out.println("Выберите операционную систему вашего устройства");
+    public static void checkerDeviceClient(int deviceOs, int clientDeviceYear) {
+        int currentYear = LocalDate.now().getYear();
+        if ((deviceOs == 0) && (clientDeviceYear <= 2015)) {
+            System.out.println("Установите облегчённую версию приложения для iOS по ссылке");
+        } else if ((deviceOs == 0) && (clientDeviceYear > 2015)) {
+            System.out.println("Установите версию приложения для iOS по ссылке");
+        }
+        if ((deviceOs == 1) && (clientDeviceYear <= 2015)) {
+            System.out.println("Установите облегчённую версию приложения для Android по ссылке");
+        } else if ((deviceOs == 1) && (clientDeviceYear > 2015)) {
+            System.out.println("Установите версию приложения для Android по ссылке");
         }
     }
 
